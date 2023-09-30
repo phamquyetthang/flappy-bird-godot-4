@@ -1,0 +1,124 @@
+[gd_scene load_steps=5 format=3 uid="uid://jnu3tnob7asi"]
+
+[ext_resource type="Texture2D" uid="uid://cyi13laqq0uxf" path="res://assets/Box_Orange_Square.png" id="1_8j2vk"]
+[ext_resource type="Script" path="res://start.gd" id="1_hy03b"]
+[ext_resource type="Texture2D" uid="uid://br7qarqlt16uk" path="res://assets/Btn.png" id="1_odcgf"]
+[ext_resource type="FontFile" uid="uid://cvv27un01nccv" path="res://assets/ThaleahFat.ttf" id="2_xcyhr"]
+
+[node name="Start" type="CanvasLayer"]
+script = ExtResource("1_hy03b")
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="Control2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -252.0
+offset_top = -247.0
+offset_right = 1388.0
+offset_bottom = 1332.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 4
+texture = ExtResource("1_8j2vk")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -136.0
+offset_right = 163.0
+offset_bottom = -70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xcyhr")
+theme_override_font_sizes/font_size = 68
+text = "Highest scores"
+
+[node name="Score" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = -0.1
+anchor_right = 0.5
+anchor_bottom = -0.1
+offset_left = -12.0
+offset_top = -24.0
+offset_right = 22.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xcyhr")
+theme_override_font_sizes/font_size = 68
+
+[node name="TextureButton" type="TextureButton" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -79.0
+offset_top = 66.0
+offset_right = 904.0
+offset_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+texture_normal = ExtResource("1_odcgf")
+
+[node name="Play" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.0
+offset_top = 78.0
+offset_right = 80.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_xcyhr")
+theme_override_font_sizes/font_size = 56
+text = "Play"
+
+[connection signal="pressed" from="Control/TextureButton" to="." method="_on_texture_button_pressed"]

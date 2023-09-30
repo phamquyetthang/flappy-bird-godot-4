@@ -1,0 +1,63 @@
+[gd_scene load_steps=6 format=3 uid="uid://3w2c6lth5b50"]
+
+[ext_resource type="Script" path="res://pipe.gd" id="1_t0n1y"]
+[ext_resource type="Texture2D" uid="uid://b7nsmxfwm2b6q" path="res://assets/Tileset/Style 1/PipeStyle1.png" id="2_vs24n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wf7cx"]
+size = Vector2(48, 161.364)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbuaw"]
+size = Vector2(46, 190)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j8ack"]
+size = Vector2(11, 121)
+
+[node name="Pipe" type="Node2D"]
+script = ExtResource("1_t0n1y")
+
+[node name="TopArea" type="Area2D" parent="."]
+position = Vector2(8, 48)
+scale = Vector2(1, 2.2)
+metadata/_edit_group_ = true
+
+[node name="TopSprite" type="Sprite2D" parent="TopArea"]
+position = Vector2(7.5, -42.9545)
+scale = Vector2(1.46875, 2.07386)
+texture = ExtResource("2_vs24n")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopArea"]
+position = Vector2(8, -40.6818)
+shape = SubResource("RectangleShape2D_wf7cx")
+
+[node name="BottomArea" type="Area2D" parent="."]
+position = Vector2(8, 323)
+scale = Vector2(1, 2.1)
+metadata/_edit_group_ = true
+
+[node name="Bottom" type="Sprite2D" parent="BottomArea"]
+position = Vector2(8, 55.2381)
+scale = Vector2(1.5, 2.38095)
+texture = ExtResource("2_vs24n")
+region_enabled = true
+region_rect = Rect2(0, 80, 32, 80)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomArea"]
+position = Vector2(7, 55.4762)
+shape = SubResource("RectangleShape2D_hbuaw")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(70, 121)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-7.5, 68.5)
+shape = SubResource("RectangleShape2D_j8ack")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="TopArea" to="." method="_on_top_area_body_entered"]
+[connection signal="body_entered" from="BottomArea" to="." method="_on_bottom_area_body_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
